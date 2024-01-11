@@ -1,0 +1,44 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://bazaarvietnam.vn/wp-content/uploads/2023/11/harper-bazaar-chuong-nhuoc-nam-phim-zhangruonan.official-e1700576315953.jpg"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <title>Simple Chrome Desktop Notification</title>
+  </head>
+
+  <body>
+    <div style="display: flex; flex-direction: column; gap: 5px; width: 50%">
+      <input type="text" name="badge" label="Badge" placeholder="badge" />
+      <input type="text" name="content" label="Content" placeholder="content" />
+      <input type="text" name="icon" label="Icon" placeholder="Icon" />
+      <input type="text" name="image" label="Image" placeholder="Image" />
+      <input type="text" name="title" label="Title" placeholder="Title" />
+      <input type="text" name="url" label="Url" placeholder="Url" />
+      <input
+        type="number"
+        name="send_time"
+        label="Send Time"
+        placeholder="Send Time"
+      />
+      <input
+        type="number"
+        name="send_type"
+        label="Send Type"
+        placeholder="Send Type"
+      />
+    </div>
+    <button
+      style="margin-top: 5px"
+      id="btn-show-notification"
+      onclick="sendNotification()"
+    >
+      Notify Me!
+    </button>
+  </body>
+</html>
