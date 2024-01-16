@@ -22,7 +22,7 @@ function getCookie(cname) {
   }
   return "";
 }
-const urlBase = 'http://10.3.2.244:8080';
+const urlBase = 'https://portal-sdl-dev.vivas.vn/hieupm';
 let publicKey = 'BEEpnOVYoaVikBR02ra8N7Q_nuVr6TDoilD12ze-TjuMQxzZgHYS76vxVhn7Peba4vTncocKqBegYdlewqCjCto';
 
 function subscribe() {
