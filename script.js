@@ -1,22 +1,26 @@
-function requestNotificationPermission() {
-    // Kiểm tra xem trình duyệt có hỗ trợ thông báo hay không
-    if ('Notification' in window) {
-      Notification.requestPermission().then(function(permission) {
-        if (permission === 'granted') {
-          // Quyền truy cập thông báo được cấp phép
-          showNotification('Permission Granted', 'You can now receive notifications.');
-        } else if (permission === 'denied') {
-          // Quyền truy cập thông báo bị từ chối
-          showNotification('Permission Denied', 'You have denied notification permission.');
-        }
-      });
-    } else {
-      alert('Thông báo không được hỗ trợ trên trình duyệt này.');
-    }
+function notifyMe() {
+  if (!("Notification" in window)) {
+    // Check if the browser supports notifications
+    alert("This browser does not support desktop notification");
+  } else if (Notification.permission === "granted") {
+    // Check whether notification permissions have already been granted;
+    // if so, create a notification
+    const notification = new Notification("Hi there!");
+    // …
+  } else if (Notification.permission !== "denied") {
+    // We need to ask the user for permission
+    Notification.requestPermission().then((permission) => {
+      // If the user accepts, let's create a notification
+      if (permission === "granted") {
+        const notification = new Notification("Hi there!");
+        // …
+      }
+    });
   }
 
-  // Gọi hàm yêu cầu quyền khi trang được tải
-  requestNotificationPermission();
+  // At last, if the user has denied notifications, and you
+  // want to be respectful there is no need to bother them anymore.
+}
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
