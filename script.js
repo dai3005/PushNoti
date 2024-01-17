@@ -1,11 +1,26 @@
-navigator.serviceWorker.register('sw.js');
-Notification.requestPermission(function(result) {
-  if (result === 'granted') {
-    navigator.serviceWorker.ready.then(function(registration) {
-      registration.showNotification('Notification with ServiceWorker');
-    });
+function requestNotificationPermission() {
+    // Kiểm tra xem trình duyệt có hỗ trợ thông báo hay không
+    if ('Notification' in window) {
+      Notification.requestPermission().then(function(permission) {
+        if (permission === 'granted') {
+          // Quyền truy cập thông báo được cấp phép
+          showNotification('Permission Granted', 'You can now receive notifications.');
+        } else if (permission === 'denied') {
+          // Quyền truy cập thông báo bị từ chối
+          showNotification('Permission Denied', 'You have denied notification permission.');
+        }
+      });
+    } else {
+      alert('Thông báo không được hỗ trợ trên trình duyệt này.');
+    }
   }
-});
+
+  function showNotification(title, body) {
+    new Notification(title, { body: body });
+  }
+
+  // Gọi hàm yêu cầu quyền khi trang được tải
+  requestNotificationPermission();
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
