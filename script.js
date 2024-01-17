@@ -1,5 +1,10 @@
-window.addEventListener('load', function () {
-  Notification.requestPermission();
+navigator.serviceWorker.register('sw.js');
+Notification.requestPermission(function(result) {
+  if (result === 'granted') {
+    navigator.serviceWorker.ready.then(function(registration) {
+      registration.showNotification('Notification with ServiceWorker');
+    });
+  }
 });
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();
