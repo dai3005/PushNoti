@@ -15,10 +15,6 @@ function requestNotificationPermission() {
     }
   }
 
-  function showNotification(title, body) {
-    new Notification(title, { body: body });
-  }
-
   // Gọi hàm yêu cầu quyền khi trang được tải
   requestNotificationPermission();
 function setCookie(cname, cvalue, exdays) {
