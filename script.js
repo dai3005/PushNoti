@@ -37,7 +37,7 @@ function notifyMe() {
       });
     }
   });
-}
+
 
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();
