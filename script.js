@@ -22,7 +22,7 @@ function notifyMe() {
   // want to be respectful there is no need to bother them anymore.
 }
 
- const button = document.getElementById("subscribe");
+ const button = document.getElementById("sub");
   button.addEventListener("click", async () => {
     // Triggers popup to request access to send notifications
     const result = await window.Notification.requestPermission();
