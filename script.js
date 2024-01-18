@@ -23,6 +23,7 @@ function notifyMe() {
 }
 
 const button = document.getElementById("subabc");
+console.log(button);
 if (!button) {
   console.log("No button");
 } else {
