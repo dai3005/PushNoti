@@ -21,6 +21,24 @@ function notifyMe() {
   // At last, if the user has denied notifications, and you
   // want to be respectful there is no need to bother them anymore.
 }
+
+ const button = document.getElementById("subscribe");
+  button.addEventListener("click", async () => {
+    // Triggers popup to request access to send notifications
+    const result = await window.Notification.requestPermission();
+
+    // If the user rejects the permission result will be "denied"
+    if (result === "granted") {
+      // You must use the service worker notification to show the notification
+      // Using new Notification("Hello World", { body: "My first notification on iOS"}) does not work on iOS
+      // despite working on other platforms
+      await registration.showNotification("Hello World", {
+        body: "My first notification on iOS",
+      });
+    }
+  });
+}
+
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
